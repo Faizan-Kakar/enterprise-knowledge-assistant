@@ -269,6 +269,111 @@ The architecture is designed to be modular, scalable, and adaptable across indus
 
 ---
 
+# 🚀 Getting Started
+
+Follow the steps below to run the project locally.
+
+## 1. Clone the Repository
+
+```bash
+git clone https://github.com/<your-username>/enterprise-knowledge-assistant.git
+cd enterprise-knowledge-assistant
+```
+
+---
+
+## 2. Create a Virtual Environment
+
+```bash
+python -m venv .venv
+```
+
+Activate it:
+
+### Windows
+
+```bash
+.venv\Scripts\activate
+```
+
+### Linux / macOS
+
+```bash
+source .venv/bin/activate
+```
+
+---
+
+## 3. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## 4. Configure Environment Variables
+
+Create a `.env` file in the project root (or copy `.env.example`).
+
+Update the required variables:
+
+```env
+
+MONGODB_URI=your_mongodb_connection_string
+
+QDRANT_URL=http://localhost:6333
+
+QDRANT_API_KEY=
+
+LANGSMITH_API_KEY=
+
+JWT_SECRET=your_secret_key
+```
+
+> Configure only the providers you intend to use. Unused variables can be left empty.
+
+---
+
+## 5. Start Required Services
+
+Ensure the following services are running:
+
+- ✅ Ollama (or your preferred LLM provider)
+- ✅ MongoDB
+- ✅ Qdrant Vector Database
+
+If you get any querry feel free to reach me.
+
+---
+
+## 6. Start the Backend
+
+```bash
+uvicorn app.main:app --reload
+```
+
+The API will be available at:
+
+```
+http://localhost:8000
+```
+
+Swagger documentation:
+
+```
+http://localhost:8000/docs
+```
+
+---
+
+## 7. Ingest Your Documents
+
+Upload or index your organization's documents into the configured vector database before interacting with the assistant.
+
+Once indexing is complete, the assistant can retrieve relevant knowledge and answer user questions.
+
+
 # 📄 License
 
 This project is available under the MIT License.
